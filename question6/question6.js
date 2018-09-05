@@ -1,6 +1,5 @@
 'use strict';
 const answerNumber = Math.floor (Math.random () * Math.floor (101));
-console.log ('答え：' + String (answerNumber));
 let correctFlag = false;
 let count = 0;
 const intervalID = setInterval (function () {
