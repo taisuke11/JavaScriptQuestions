@@ -1,16 +1,18 @@
 'use strict';
-let get_number = 0;
-get_number = Number (prompt ('数字を入力してください。'));
-for (const value of Array.from ({length: get_number}, (v, k) => k + 1)) {
-  let result_str = 'error';
-  if (value % 15 == 0) {
-    result_str = 'FizzBuzz';
-  } else if (value % 5 == 0) {
-    result_str = 'Buzz';
-  } else if (value % 3 == 0) {
-    result_str = 'Fizz';
-  } else {
-    result_str = value;
+const getNumber = Number (prompt ('数字を入力してください。'));
+let resultStr = '';
+for (const value of Array.from ({length: getNumber}, (v, k) => k + 1)) {
+  if (resultStr !== '') {
+    resultStr += ', ';
   }
-  console.log (result_str);
+  if (value % 15 === 0) {
+    resultStr += 'FizzBuzz';
+  } else if (value % 5 === 0) {
+    resultStr += 'Buzz';
+  } else if (value % 3 === 0) {
+    resultStr += 'Fizz';
+  } else {
+    resultStr += String (value);
+  }
 }
+console.log (resultStr);
