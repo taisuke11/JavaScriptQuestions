@@ -35,8 +35,8 @@ do {
 } while (changeflag === true);
 const minValue = sortBySmallArray[0];
 const maxValue = sortBySmallArray[ArraySize - 1];
-console.log ('最大値：' + minValue);
-console.log ('最小値：' + maxValue);
+console.log ('最小値：' + minValue);
+console.log ('最大値：' + maxValue);
 
 // クイックソートによる大きい順の並び替え
 function quickSortByBig (seq) {
@@ -55,7 +55,9 @@ function quickSortByBig (seq) {
       right.push (seq[count]);
     }
   }
+  // 左側を並び替えるまで再起処理をし続ける。
   left = quickSortByBig (left).concat ([pivot]);
+  // 右側を並び替えるまで再起処理をし続ける
   const resultArray = left.concat (quickSortByBig (right));
   return resultArray;
 }
