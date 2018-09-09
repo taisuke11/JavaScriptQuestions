@@ -18,11 +18,11 @@ do {
   changeflag = false;
   count1 = 0;
   if (count1 !== ArraySize - 1) {
-    sortBySmallArray.forEach (element1 => {
+    sortBySmallArray.forEach (arrayValue => {
       for (const i of Array (ArraySize - count1 - 1).keys ()) {
         const count2 = count1 + i + 1;
         let tempValue = 0;
-        if (element1 > sortBySmallArray[count2]) {
+        if (arrayValue > sortBySmallArray[count2]) {
           tempValue = sortBySmallArray[count1];
           sortBySmallArray[count1] = sortBySmallArray[count2];
           sortBySmallArray[count2] = tempValue;
