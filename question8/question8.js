@@ -1,4 +1,5 @@
 'use strict';
+
 // Fooをuryyyy!!に置換する
 function replaceFooText (text) {
   const replaceRegular = /foo/g;
@@ -9,9 +10,8 @@ function replaceFooText (text) {
 
 // ハッシュの中の全てをFooをuryyyy!!に変換する
 function toUry (setHash) {
-  const objectNameString = '[object Object]';
   for (const key in setHash) {
-    if (Object.prototype.toString.call (setHash[key]) === objectNameString) {
+    if (key !== 'text') {
       setHash[key] = toUry (setHash[key]);
     } else {
       setHash[key] = replaceFooText (setHash[key]);
