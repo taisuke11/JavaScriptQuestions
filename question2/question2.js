@@ -9,11 +9,6 @@ hashArray = {};
 // 単語の数を数える
 for (const arrayStr of arrayOfString) {
   let isSameStr = false;
-  /*
-  if (Object.keys (hashArray).length === 0) {
-    hashArray[arrayStr] = 1;
-    continue;
-  } */
   for (const key in hashArray) {
     if (key === arrayStr) {
       hashArray[arrayStr] = hashArray[arrayStr] + 1;
@@ -25,7 +20,16 @@ for (const arrayStr of arrayOfString) {
     hashArray[arrayStr] = 1;
   }
 }
-// 文字列に直す
-let resultStr;
+// 初めてファイルを開いたときと
+// ファイルを開いた状態で更新をかけた場合での表示が異なるので
+// 統一するために文字列に変換する
+let resultStr = '{';
+for (const key in hashArray) {
+  if (resultStr !== '{') {
+    resultStr += ',';
+  }
+  resultStr += key + ':' + String (hashArray[key]);
+}
+resultStr += '}';
 
-console.log (hashArray);
+console.log (resultStr);
