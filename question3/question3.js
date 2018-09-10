@@ -10,9 +10,13 @@ const intervalID = setInterval (function () {
   // 入力する際に何を入力すればいいのかわかりやすくするために
   // promptの方に0.グー 1.チョキ 2.パーを表示するように修正
   getValue = prompt ('0.グー 1.チョキ 2.パー');
-  // 何も入力しない状態で変換すると0になってしまうので
+  // 空欄や全角スペースや半角スペースで変換すると0になってしまうので
   // 空欄の場合はエラーの値を入れるようにする
-  if (getValue === '') {
+  if (
+    getValue === '' ||
+    getValue.indexOf (' ') !== -1 ||
+    getValue.indexOf ('　') !== -1
+  ) {
     getValue = -1;
   } else {
     getValue = Number (getValue);
