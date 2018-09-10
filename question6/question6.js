@@ -6,9 +6,13 @@ console.log ('0-100で数字を当てて');
 const intervalID = setInterval (function () {
   let hintMessage = '';
   let getNumber = prompt ('数字を入力してください');
-  // 何も入力しない状態で変換すると0になってしまうので
+  // 何も入力しない状態や半角スペースや全角スペースで変換すると0になってしまうので
   // 空欄の場合はエラーの値を入れるようにする
-  if (getNumber === '') {
+  if (
+    getNumber === '' ||
+    getNumber.indexOf (' ') !== -1 ||
+    getNumber.indexOf ('　') !== -1
+  ) {
     getNumber = -1;
   } else {
     getNumber = Number (getNumber);
