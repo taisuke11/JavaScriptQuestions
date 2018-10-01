@@ -1,11 +1,9 @@
 'use strict';
 const value = Number (prompt ('数字を入力してください'));
-function calSumValue (value, sumValue = 0) {
+function calSumValue (value) {
   if (value < 1) {
-    return sumValue;
+    return 0;
   }
-  sumValue += value;
-  value -= 1;
-  return calSumValue (value, sumValue);
+  return calSumValue (value - 1) + value;
 }
 console.log (String (calSumValue (value)));
