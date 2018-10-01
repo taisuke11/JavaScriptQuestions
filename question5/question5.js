@@ -1,38 +1,35 @@
 'use strict';
-const iniArray = [20, 31, 42, 13, 5, 38];
+const initialArray = [20, 31, 42, 13, 5, 38];
 let sumValue = 0;
 let averValue = 0;
-iniArray.forEach (element => {
+initialArray.forEach (element => {
   sumValue += element;
 });
-const ArraySize = iniArray.length;
+const ArraySize = initialArray.length;
 averValue = sumValue / ArraySize;
 console.log ('合計：' + sumValue);
 console.log ('平均：' + averValue);
 // バブルソートによる小さい順の並び替え。
 let sortBySmallArray = [];
-sortBySmallArray = iniArray;
+sortBySmallArray = initialArray;
 let changeflag = false;
-let count1 = 1;
+let index1 = 1;
 do {
   changeflag = false;
-  count1 = 0;
-  if (count1 !== ArraySize - 1) {
-    sortBySmallArray.forEach (arrayValue => {
-      for (const i of Array (ArraySize - count1 - 1).keys ()) {
-        const count2 = count1 + i + 1;
-        let tempValue = 0;
-        if (arrayValue > sortBySmallArray[count2]) {
-          tempValue = sortBySmallArray[count1];
-          sortBySmallArray[count1] = sortBySmallArray[count2];
-          sortBySmallArray[count2] = tempValue;
-          changeflag = true;
-        }
+  for (let i = 0; i < ArraySize - 1; i++) {
+    for (let j = 1; j < ArraySize - i - 1; j++) {
+      const index1 = j - 1;
+      const index2 = j;
+      let tempValue = 0;
+      if (sortBySmallArray[index1] > sortBySmallArray[index2]) {
+        tempValue = sortBySmallArray[index1];
+        sortBySmallArray[index1] = sortBySmallArray[index2];
+        sortBySmallArray[index2] = tempValue;
+        changeflag = true;
       }
-      count1 += 1;
-    });
+    }
   }
-} while (changeflag === true);
+} while (changeflag);
 const minValue = sortBySmallArray[0];
 const maxValue = sortBySmallArray[ArraySize - 1];
 console.log ('最小値：' + minValue);
@@ -46,9 +43,7 @@ function quickSortByBig (seq) {
   const pivot = seq[0];
   let left = [];
   let right = [];
-  right = [];
-  for (const i of Array (seq.length - 1).keys ()) {
-    const count = i + 1;
+  for (let count = 1; count < seq.length; count++) {
     if (seq[count] >= pivot) {
       left.push (seq[count]);
     } else {
@@ -62,7 +57,7 @@ function quickSortByBig (seq) {
   return resultArray;
 }
 
-const sortByBigArray = quickSortByBig (iniArray);
+const sortByBigArray = quickSortByBig (initialArray);
 
 console.log ('小さい順：' + sortBySmallArray);
 console.log ('大きい順：' + sortByBigArray);
