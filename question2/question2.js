@@ -12,17 +12,6 @@ for (const value of arrayOfWords) {
   } else {
     hashOfWordCount[value] = 1;
   }
-  /* let isSameWord = false;
-  for (const key in hashOfWordCount) {
-    if (key === value) {
-      hashOfWordCount[value] = hashOfWordCount[value] + 1;
-      isSameWord = true;
-      break;
-    }
-  }
-  if (isSameWord === false) {
-    hashOfWordCount[value] = 1;
-  }*/
 }
 // 初めてファイルを開いたときと
 // ファイルを開いた状態で更新をかけた場合での表示が異なるので
@@ -35,5 +24,4 @@ for (const key in hashOfWordCount) {
   resultStr += key + ':' + String (hashOfWordCount[key]);
 }
 resultStr += '}';
-
 console.log (resultStr);
