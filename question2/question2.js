@@ -7,7 +7,12 @@ let hashOfWordCount;
 hashOfWordCount = {};
 // 単語の数を数える
 for (const value of arrayOfWords) {
-  let isSameWord = false;
+  if (hashOfWordCount[value]) {
+    hashOfWordCount[value]++;
+  } else {
+    hashOfWordCount[value] = 1;
+  }
+  /* let isSameWord = false;
   for (const key in hashOfWordCount) {
     if (key === value) {
       hashOfWordCount[value] = hashOfWordCount[value] + 1;
@@ -17,7 +22,7 @@ for (const value of arrayOfWords) {
   }
   if (isSameWord === false) {
     hashOfWordCount[value] = 1;
-  }
+  }*/
 }
 // 初めてファイルを開いたときと
 // ファイルを開いた状態で更新をかけた場合での表示が異なるので
