@@ -9,6 +9,9 @@ function isIntNumber (value) {
   return -1;
 }
 console.log ('0-100で数字を当てて');
+//whileでループした場合、初回で読み込んだ際に
+//正解が出るまでコンソール上に表示されない
+//その為、今回は敢えてsetIntervalを採用した。
 const intervalID = setInterval (function () {
   let getNumber = prompt ('数字を入力してください');
   getNumber = isIntNumber (getNumber);
