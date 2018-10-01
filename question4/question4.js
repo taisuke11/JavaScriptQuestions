@@ -1,19 +1,11 @@
 'use strict';
-const getValue = Number (prompt ('数字を入力してください'));
-let resultValue = 0;
-let calProcessString = '（';
+const value = Number (prompt ('数字を入力してください'));
 function calSumValue (value, sumValue = 0) {
-  calProcessString += String (value);
+  if (value < 1) {
+    return sumValue;
+  }
   sumValue += value;
   value -= 1;
-  if (value < 1) {
-    resultValue = sumValue;
-    calProcessString += 'の結果）';
-  } else {
-    calProcessString += '+';
-    calSumValue (value, sumValue);
-  }
+  return calSumValue (value, sumValue);
 }
-calSumValue (getValue);
-calProcessString = String (resultValue) + calProcessString;
-console.log (calProcessString);
+console.log (String (calSumValue (value)));
