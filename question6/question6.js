@@ -12,7 +12,8 @@ console.log ('0-100で数字を当てて');
 //whileでループした場合、初回で読み込んだ際に
 //正解が出るまでコンソール上に表示されない
 //その為、今回は敢えてsetIntervalを採用した。
-const intervalID = setInterval (function () {
+let keepLoopFlag = true;
+do {
   let getNumber = prompt ('数字を入力してください');
   getNumber = isIntNumber (getNumber);
   // 範囲外の数字もしくは整数以外が入力されたら
@@ -31,7 +32,7 @@ const intervalID = setInterval (function () {
       console.log ('もっと上');
     } else {
       console.log ('正解！・・・' + String (count) + '回目で当てました');
-      clearInterval (intervalID);
+      keepLoopFlag = false;
     }
   }
-}, 100);
+} while (keepLoopFlag);

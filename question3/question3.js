@@ -1,5 +1,5 @@
 'use strict';
-let drawFlag = false;
+let drawFlag = true;
 const zyankenHash = {0: 'グー', 1: 'チョキ', 2: 'パー'};
 let resultString = '';
 let myZyankenValue = 0;
@@ -8,7 +8,7 @@ let resultValue = 0;
 //setIntervalを採用したのは、whileによるループだと
 //初回読み込み時に勝ち負けが決まるまで
 //Consoleに表示されない問題があった為です。
-const intervalID = setInterval (function () {
+do {
   console.log ('「じゃんけん・・・」');
   // 入力する際に何を入力すればいいのかわかりやすくするために
   // promptの方に0.グー 1.チョキ 2.パーを表示するように修正
@@ -36,7 +36,6 @@ const intervalID = setInterval (function () {
         break;
       case 0:
         resultString = '「アイコでしょ！」';
-        drawFlag = true;
         break;
       default:
         resultString = '「あなたの負け！」';
@@ -44,8 +43,5 @@ const intervalID = setInterval (function () {
         break;
     }
     console.log (resultString);
-    if (!drawFlag) {
-      clearInterval (intervalID);
-    }
   }
-}, 100);
+} while (drawFlag);
