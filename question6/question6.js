@@ -5,15 +5,11 @@ let count = 0;
 //未入力も含めて整数でない値は、-1を返す
 function isIntNumber (value) {
   value = String (value);
-  if (/^(\-|\+)?([0-9]+)$/.test (value)) return Number (value);
+  if (/^\d+$/.test (value)) return Number (value);
   return -1;
 }
 console.log ('0-100で数字を当てて');
-//whileでループした場合、初回で読み込んだ際に
-//正解が出るまでコンソール上に表示されない
-//その為、今回は敢えてsetIntervalを採用した。
-let keepLoopFlag = true;
-do {
+while (true) {
   let getNumber = prompt ('数字を入力してください');
   getNumber = isIntNumber (getNumber);
   // 範囲外の数字もしくは整数以外が入力されたら
@@ -32,7 +28,7 @@ do {
       console.log ('もっと上');
     } else {
       console.log ('正解！・・・' + String (count) + '回目で当てました');
-      keepLoopFlag = false;
+      break;
     }
   }
-} while (keepLoopFlag);
+}
