@@ -10,10 +10,8 @@ averValue = sumValue / ArraySize;
 console.log ('合計：' + sumValue);
 console.log ('平均：' + averValue);
 // バブルソートによる小さい順の並び替え。
-let sortBySmallArray = [];
-sortBySmallArray = initialArray;
+let sortBySmallArray = initialArray.concat ();
 let changeflag = false;
-let index1 = 1;
 do {
   changeflag = false;
   for (let i = 0; i < ArraySize - 1; i++) {
@@ -34,7 +32,6 @@ const minValue = sortBySmallArray[0];
 const maxValue = sortBySmallArray[ArraySize - 1];
 console.log ('最小値：' + minValue);
 console.log ('最大値：' + maxValue);
-
 // クイックソートによる大きい順の並び替え
 function quickSortByBig (seq) {
   if (seq.length < 1) {
