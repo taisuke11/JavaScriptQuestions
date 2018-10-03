@@ -5,9 +5,6 @@ let resultString = '';
 let myZyankenValue = 0;
 let computerZyankenValue = 0;
 let resultValue = 0;
-//setIntervalを採用したのは、whileによるループだと
-//初回読み込み時に勝ち負けが決まるまで
-//Consoleに表示されない問題があった為です。
 do {
   console.log ('「じゃんけん・・・」');
   // 入力する際に何を入力すればいいのかわかりやすくするために
