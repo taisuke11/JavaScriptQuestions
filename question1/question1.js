@@ -12,4 +12,4 @@ for (let i = 1; i <= number; i++) {
     result.push (String (i));
   }
 }
-console.log (result.join ([', ']));
+console.log (result.join (', '));
